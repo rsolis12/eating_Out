@@ -29,7 +29,7 @@ require(knitr)
 #require(haven)
 require(foreign)
 ```
-```{r, eval=TRUE}
+```{r, eval=TRUE,warning=FALSE}
 #GSS <-(read_dta(file="GSS1998.dta))
 GSS<- readstata13::read.dta13(file="GSS1998.dta")
 GSS <-droplevels(GSS)
