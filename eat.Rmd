@@ -85,3 +85,5 @@ fisherXY(mydata$race,mydata$eatout, printAll = TRUE)
 ```
 White people eat out almost 2.2 times more then black people. The p value of white people is greater then .005. The p value is lower for the black group. Fisher Xy is an analog to Tuku HD. The odd between black and white is somewhere at 0 between 1.49 and zero is in the middle range
 .
+#Conclusion
+Today i learned how to tamper with and use Fisher Xy to get data and variables from other files like Strata GSS 1998 to see which race eats out more and eats in. It was a challenge and took two days but I am very joyful now thats its over.
