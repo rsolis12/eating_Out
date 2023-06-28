@@ -69,8 +69,7 @@ table1 <- xtabs(~race + eatout, data=mydata)
 rowPerc(table1)
 colPerc(table1)
 ```
-
-
+Here we have the nurmerical result. the percentage of whites eating out is on top percentile.While 70% of blacks ate out a total of 28 did not. The other group were the smallest, black group in the middle and white on top for eating out.
 
 
 
