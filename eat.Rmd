@@ -26,17 +26,49 @@ source(file="fisherXY.R")
 require(tidyverse)
 require(tigerstats)
 require(knitr)
+#require(haven)
 require(foreign)
 ```
-```{r, eval=FALSE}
-GSS <-read_dta(file="GSS1998.dta")
-GSS <- droplevels(GSS)
+```{r, eval=TRUE}
+#GSS <-(read_dta(file="GSS1998.dta))
+GSS<- readstata13::read.dta13(file="GSS1998.dta")
+GSS <-droplevels(GSS)
 mydata <- select(GSS,race,age,eatout)
-mydata <- na.omit(mydata)
+mydata <-na.omit(mydata)
+
 ```
 
 
 
+
+```{r}
+barchartGC(~race + eatout,data=mydata)
+barchartGC(~race + eatout,data=mydata, type="percent")
+
+```
+The white group eats out more then not, while the other groups eat out more then the black group and less then not.
+
+```{r}
+dd2 <- mydata %>% group_by(race,eatout) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
+
+
+# the group_by followed by summarize(count=n())
+
+basicC <- ggplot(dd2,aes(x=race,y=count,fill=eatout))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(dd2,aes(x=race,y=prcnt*100,fill=eatout)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+```
+The one the left
+
+```{r}
+table1 <- xtabs(~race + eatout, data=mydata)
+rowPerc(table1)
+colPerc(table1)
+```
 
 
 
