@@ -62,7 +62,7 @@ basicC + geom_bar(stat="identity",position="dodge")
 basicCC <- ggplot(dd2,aes(x=race,y=prcnt*100,fill=eatout)) 
 basicCC + geom_bar(stat="identity", position = "dodge")
 ```
-The one the left
+The one the left one is the count and the right is the percentage.
 
 ```{r}
 table1 <- xtabs(~race + eatout, data=mydata)
